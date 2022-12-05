@@ -37,9 +37,9 @@ Introduction
 
 ## Recommended blogs
 
-* <a href="https://www.waldo.be/" target="_blank">Erik Wouters</a>
-* <a href="http://www.vjeko.com/" target="_blank">Vjekoslav Babić</a>
-* <a href="https://www.kauffmann.nl/" target="_blank">Arend-Jan Kauffmann</a>
-* <a href="https://www.hougaard.com/" target="_blank">Erik Hougaard</a>
-* <a href="https://www.demiliani.com/" target="_blank">Stefano Demiliani</a>
-* <a href="https://yzhums.com/" target="_blank">Yun Zhu</a>
+* [Erik Wouters](https://www.waldo.be/)
+* [Vjekoslav Babić](http://www.vjeko.com/)
+* [Arend-Jan Kauffmann](https://www.kauffmann.nl/)
+* [Erik Hougaard](https://www.hougaard.com/)
+* [Stefano Demiliani](https://www.demiliani.com)
+* [Yun Zhu](https://yzhums)
