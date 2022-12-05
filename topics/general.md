@@ -15,7 +15,11 @@ This way of working leads to the following tools that must be installed on a dev
 * [Docker Desktop](https://www.docker.com/)
 * [Visual Studio Code](https://www.vscode.com/)
 
-Please note that Docker Desktop must be setup to use Windows Containers to be able to use it for Business Central development. To be able to do that, the following Windows features must be installed:
+Please note that Docker Desktop must be setup to use Windows Containers to be able to use it for Business Central development. This can be done by right clicking the docker icon in the taskbar and choosing to switch to Windows containers.
+
+![Switch to Windows Containers](../images/general/required-tools-switch-to-windows-containers.png)
+
+To be able use Docker in this way, the following Windows features must be installed:
 
 ![Containers and Hyper-V Windows features must be installed](../images/general/required-tools-windows-features.png)
 

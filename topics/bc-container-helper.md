@@ -7,7 +7,7 @@ Microsoft created a PowerShell module that helps us with automating recurring de
 In general, what we need to do is determine:
 - A name for the container that must be created.
 - A username and password that will be used to enter Business Central in the container.
-- The location where the .bclicense file can be found.
+- The location where the .bclicense file can be found. The latest version is always published on [Microsoft Teams](https://bluace.sharepoint.com/:f:/s/Bluace-Products/Euv5p_uVj5ZIu5oGXCzhBesB4xuzbaX25kdXHHPpAwcUCQ?e=WIOxnS).
 - Which Business Central version and localization must be used.
 - Whether testing apps apps are necessary to be included into the container.
 - How many memory the container is allowed to use.
