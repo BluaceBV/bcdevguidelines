@@ -8,6 +8,9 @@ Because a guideline is never complete, this document is published in a GitHub re
 
 ## Index
 
+### [General](topics/general.md)
+* [Required tools](topics/general.md#required-tools)
+
 ### [Azure DevOps](topics/azure-devops.md)
 
 * [User Stories](topics/azure-devops.md#user-stories)
@@ -24,7 +27,6 @@ Because a guideline is never complete, this document is published in a GitHub re
 
 ### [AL Development](topics/al-development.md)
 
-* [Recommended tools/apps](topics/al-development.md#recommended-toolsapps)
 * [Using the development branch](topics/al-development.md#using-the-development-branch)
 * [Object centric programming](topics/al-development.md#object-centric-programming)
 * [Object numbering](topics/al-development.md#object-numbering)
