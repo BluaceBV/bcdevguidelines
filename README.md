@@ -1,6 +1,10 @@
 # Bluace development guidelines for Business Central
 
-The goal of this document is to give the developer some guidence on the processes that we use for AL development at Bluace. That is the process from issue to realized product. It covers the registration of issues, creating tasks, developing the AL code on a task in a feature branche and finally pull requesting the modified feature branch into the development branch.
+The goal of this document is to give the developer some guidence, as part of our toolkit, on the processes that we use for AL development at Bluace. That is the process from issue to realized product. It covers the registration of issues, creating tasks, developing the AL code on a task in a feature branche, documenting the applied changes and finally pull requesting the modified feature branch into the development branch. This document applies to both product development as customer specific development.
+
+Part of our job is also to be informed about the latest developments in the broader ecosystem of the Business Central product. This enables us to make educated choices regarding functionalities that we create and maintain. This information is mainly published through digital channels, on Yammer or through blogs of MVP's. The links to a couple of inportant ones are included in this document.
+
+Because a guideline is never complete, this document is published in a GitHub repository. This enables you to suggest changes as pull requests, so we can collectively work on documenting the way we work on daily basis.
 
 ## Index
 
@@ -37,8 +41,8 @@ The goal of this document is to give the developer some guidence on the processe
 * [Clean code](topics/al-development.md#clean-code)
 * [Using pragma](topics/al-development.md#using-pragma)
 
-## Recommended blogs
-
+## Recommended links
+* [Business Central Yammer (Partners only: access controlled by Microsoft)](https://www.yammer.com/dynamicsnavdev/)
 * [Erik Wouters](https://www.waldo.be/)
 * [Vjekoslav Babić](http://www.vjeko.com/)
 * [Arend-Jan Kauffmann](https://www.kauffmann.nl/)
