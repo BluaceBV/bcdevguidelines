@@ -6,4 +6,4 @@
 
 ### Example script
 
-[<- Back](../Readme.md)
+[<- Back](../README.md)
