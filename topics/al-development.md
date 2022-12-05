@@ -57,6 +57,8 @@ Use <Name>Control as control name
 
 Use _Promoted
 
+### Using ApplicationArea
+
 ### Update permission sets
 
 For all products a permission set is included with all possible permissions on the objects that are part of the extension. Make sure that it's updated after each modification. Use AL-command, watch out for Pragma.

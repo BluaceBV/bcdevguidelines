@@ -10,6 +10,9 @@ Because a guideline is never complete, this document is published in a GitHub re
 
 ### [General](topics/general.md)
 * [Required tools](topics/general.md#required-tools)
+* [Required Visual Studio Code extensions](topics/general.md#required-visual-studio-code-extensions)
+* [Recommended Visual Studio Code extensions](topics/general.md#recommended-visual-studio-code-extensions)
+* [Recommended tools](topics/general.md#recommended-tools)
 
 ### [Azure DevOps](topics/azure-devops.md)
 
@@ -37,6 +40,7 @@ Because a guideline is never complete, this document is published in a GitHub re
 * [Using event subscribers](topics/al-development.md#using-event-subscribers)
 * [RequestPages](topics/al-development.md#requestpages)
 * [Promoted actions](topics/al-development.md#promoted-actions)
+* [Using ApplicationArea](topics/al-development.md#using-applicationarea)
 * [Update permission sets](topics/al-development.md#update-permission-sets)
 * [Captions/Tooltips](topics/al-development.md#captionstooltips)
 * [Translations using XLIFF Sync](topics/al-development.md#translations-using-xliff-sync)
