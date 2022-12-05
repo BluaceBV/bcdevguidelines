@@ -7,6 +7,10 @@
 Visual Studio extensions: AL Language, AL Extension Pack (waldo)
 CodeCops are enabled, warnings that can be avoided must be solved.
 
+### Using the development branch
+
+asdfasdf
+
 ### Object centric programming
 
 Table(Extension) with procedure, helper codeunit
