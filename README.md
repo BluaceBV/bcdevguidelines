@@ -1,6 +1,6 @@
 # Bluace development guidelines for Business Central
 
-
+The goal of this document is to give the developer some guidence on the processes that we use for AL development at Bluace. That is the process from issue to realized product. It covers the registration of issues, creating tasks, developing the AL code on a task in a feature branche and finally pull requesting the modified feature branch into the development branch.
 
 ## Index
 

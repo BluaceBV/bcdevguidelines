@@ -22,6 +22,8 @@ Where to use suffixes an when not?
 ### Naming
 
 #### Objects
+
+#### Files
 #### Fields
 
 #### Controls
