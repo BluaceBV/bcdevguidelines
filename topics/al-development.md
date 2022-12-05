@@ -2,14 +2,11 @@
 
 ## AL Development
 
-### Recommended tools/apps
-
-Visual Studio extensions: AL Language, AL Extension Pack (waldo)
-CodeCops are enabled, warnings that can be avoided must be solved.
-
 ### Using the development branch
 
-asdfasdf
+### CodeCops
+
+CodeCops are enabled, warnings that can be avoided must be solved.
 
 ### Object centric programming
 
@@ -24,6 +21,7 @@ Where to use suffixes an when not?
 #### Objects
 
 #### Files
+
 #### Fields
 
 #### Controls
@@ -69,11 +67,22 @@ For all products a permission set is included with all possible permissions on t
 
 Always supply nl-NL and en-US translations
 
-### Clean code
+### Remove unused parts
 
 Make sure that no commented code is in the branch when pull requesting
 Make sure that no unused elements are part of the code that must be integrated into the solutions.
 
-### Using pragma
+### Compiler directives
+
+Pragma
+
+### Confirm Management
+
+Use confirm management codeunit instead of System.Confirm directly.
+
+### Dialogs
+
+How to handle performance in combination with dialogs
 
 [:arrow_left:](../README.md) [Back](../README.md)
+

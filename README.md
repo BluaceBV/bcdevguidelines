@@ -32,6 +32,7 @@ Because a guideline is never complete, this document is published in a GitHub re
 ### [AL Development](topics/al-development.md)
 
 * [Using the development branch](topics/al-development.md#using-the-development-branch)
+* [CodeCops](topics/al-development#codecops)
 * [Object centric programming](topics/al-development.md#object-centric-programming)
 * [Object numbering](topics/al-development.md#object-numbering)
 * [Naming](topics/al-development.md#naming)
@@ -45,8 +46,10 @@ Because a guideline is never complete, this document is published in a GitHub re
 * [Update permission sets](topics/al-development.md#update-permission-sets)
 * [Captions/Tooltips](topics/al-development.md#captionstooltips)
 * [Translations using XLIFF Sync](topics/al-development.md#translations-using-xliff-sync)
-* [Clean code](topics/al-development.md#clean-code)
-* [Using pragma](topics/al-development.md#using-pragma)
+* [Remove unused parts](topics/al-development.md#remove-unused-parts)
+* [Compiler directives](topics/al-development.md#compiler-directives)
+* [Confirm Management](topics/al-development.md#confirm-management)
+* [Dialogs](topics/al-development.md#dialogs)
 
 ## Recommended links
 * [Business Central Yammer (Partners only: access controlled by Microsoft)](https://www.yammer.com/dynamicsnavdev/)
