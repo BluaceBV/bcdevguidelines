@@ -16,6 +16,7 @@ Because a guideline is never complete, this document is published in a GitHub re
 
 ### [Azure DevOps](topics/azure-devops.md)
 
+* [Projects](topics/azure-devops.md#projects)
 * [User Stories](topics/azure-devops.md#user-stories)
 * [Tasks](topics/azure-devops.md#tasks)
 * [Rework task (dev/test)](topics/azure-devops.md#rework-task-devtest)
