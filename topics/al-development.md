@@ -74,4 +74,4 @@ Make sure that no unused elements are part of the code that must be integrated i
 
 ### Using pragma
 
-[:arrow_left: Back](../README.md)
+[:arrow_left:](../README.md) [Back](../README.md)

@@ -33,4 +33,4 @@ To be able to work with the AL language, the AL Language extension by Microsoft 
 * [Git Extensions](https://gitextensions.github.io/)
 * [Postman](https://www.postman.com/)
 
-[:arrow_left: Back](../README.md)
+[:arrow_left:](../README.md) [Back](../README.md)
