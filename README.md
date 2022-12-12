@@ -17,11 +17,9 @@ Because a guideline is never complete, this document is published in a GitHub re
 ### [Azure DevOps](topics/azure-devops.md)
 
 * [Projects](topics/azure-devops.md#projects)
-* [User Stories](topics/azure-devops.md#user-stories)
-* [Tasks](topics/azure-devops.md#tasks)
-* [Rework task (dev/test)](topics/azure-devops.md#rework-task-devtest)
-* [Repository/Branches](topics/azure-devops.md#repositorybranches)
-* [Pull Requests](topics/azure-devops.md#pull-requests)
+* [Boards](topics/azure-devops.md#boards)
+* [Repos](topics/azure-devops.md#repos)
+* [Pipelines](pipelines/azure-devops.ms#pipelines)
 * [Use PowerBI dashboard](topics/azure-devops.md#use-powerbi-dashboard)
 
 ### [BC Container Helper](topics/bc-container-helper.md)
