@@ -1,59 +1,70 @@
-# Bluace development guidelines for Business Central
+# Bluace agentic development guidelines for Business Central
 
-The goal of this document is to give the developer some guidence, as part of our toolkit, on the processes that we use for AL development at Bluace. That is the process from issue to realized product. It covers the registration of issues, creating tasks, developing the AL code on a task in a feature branche, documenting the applied changes and finally pull requesting the modified feature branch into the development branch. This document applies to both product development as customer specific development.
+Central source of the Claude Code rules and skills that Bluace uses for AL development.
+Changes are made here once. Each AL project then pulls them in with the
+`setup-al-vibe-rules` skill.
 
-Part of our job is also to be informed about the latest developments in the broader ecosystem of the Business Central product. This enables us to make educated choices regarding functionalities that we create and maintain. This information is mainly published through digital channels, on Yammer or through blogs of MVP's. The links to a couple of inportant ones are included in this document.
+## Contents
 
-Because a guideline is never complete, this document is published in a GitHub repository. This enables you to suggest changes as pull requests, so we can collectively work on documenting the way we work on daily basis.
+| Path | Purpose |
+|---|---|
+| `.claude/rules/bluace-*.md` | Bluace team rules: coding standards, folder structure, compiling, testing, development environment. Copied into each project's `.claude/rules/`. |
+| `.claude/skills/setup-al-vibe-rules/` | Skill that sets up or refreshes an AL project (see below). |
+| `CLAUDE.md` | Reference `CLAUDE.md` for AL projects: working style, where to find the standard BC source (`external/BCApps`) and the localisation layers we use. |
 
-## Index
+## What the skill does
 
-### [General](topics/general.md)
-* [Required tools](topics/general.md#required-tools)
-* [Required Visual Studio Code extensions](topics/general.md#required-visual-studio-code-extensions)
-* [Recommended Visual Studio Code extensions](topics/general.md#recommended-visual-studio-code-extensions)
-* [Recommended tools](topics/general.md#recommended-tools)
+Running `/setup-al-vibe-rules` in an AL project:
 
-### [Azure DevOps](topics/azure-devops.md)
+1. Downloads the official Microsoft AL rules (`al-*.md`) from
+   [microsoft/alguidelines](https://github.com/microsoft/alguidelines) into `.claude/rules/`.
+2. Updates the Bluace rules (`bluace-*.md`) from branch `main` of this repository.
+3. Makes `.claude` the first folder in `al.code-workspace`.
+4. Adds an `AL coding standards` section to `CLAUDE.md` that points to `.claude/rules/`.
+5. Makes git ignore every `settings.local.json`.
+6. Adds the AL MCP servers (`bc-knowledge`, `al`, `microsoft-learn`) to `.mcp.json`.
+7. Creates `.claude/.claude/settings.local.json` with placeholders for the login of the local
+   BC container.
 
-* [Projects](topics/azure-devops.md#projects)
-* [Boards](topics/azure-devops.md#boards)
-* [Repos](topics/azure-devops.md#repos)
-* [Pipelines](pipelines/azure-devops.ms#pipelines)
-* [Use PowerBI dashboard](topics/azure-devops.md#use-powerbi-dashboard)
+For both rule sets, it first removes that set's old files, so rules that were removed or
+renamed upstream disappear from the project too. Other files in `.claude/rules/` are left
+alone. The skill never commits: review the changes and commit them with the project.
 
-### [BC Container Helper](topics/bc-container-helper.md)
+## Getting started
 
-* [Creating local development environment](topics/bc-container-helper.md#creating-local-development-environment)
-* [Example script](topics/bc-container-helper.md#example-script)
+Requirements:
+- Windows with PowerShell. The skill's download and copy commands are written for PowerShell.
+- Git logged in to GitHub with an account that has access to the BluaceBV organisation. This
+  repository is private, so the skill clones it with your own credentials.
+- Node.js (for `npx`) and the AL extension in VS Code, for the MCP servers.
 
-### [AL Development](topics/al-development.md)
+Install the skill once, as a personal skill, so it is available in every project:
 
-* [Using the development branch](topics/al-development.md#using-the-development-branch)
-* [CodeCops](topics/al-development#codecops)
-* [Object centric programming](topics/al-development.md#object-centric-programming)
-* [Object numbering](topics/al-development.md#object-numbering)
-* [Naming](topics/al-development.md#naming)
-* [Use method codeunits for actions](topics/al-development.md#use-method-codeunits-for-actions)
-* [Creating event publishers](topics/al-development.md#creating-event-publishers)
-* [Creating event subscribers](topics/al-development.md#creating-event-subscribers)
-* [Using event subscribers](topics/al-development.md#using-event-subscribers)
-* [RequestPages](topics/al-development.md#requestpages)
-* [Promoted actions](topics/al-development.md#promoted-actions)
-* [Using ApplicationArea](topics/al-development.md#using-applicationarea)
-* [Update permission sets](topics/al-development.md#update-permission-sets)
-* [Captions/Tooltips](topics/al-development.md#captionstooltips)
-* [Translations using XLIFF Sync](topics/al-development.md#translations-using-xliff-sync)
-* [Remove unused parts](topics/al-development.md#remove-unused-parts)
-* [Compiler directives](topics/al-development.md#compiler-directives)
-* [Confirm Management](topics/al-development.md#confirm-management)
-* [Dialogs](topics/al-development.md#dialogs)
+```powershell
+git clone https://github.com/BluaceBV/bcdevguidelines.git C:\Repositories\bcdevguidelines
+New-Item -ItemType Directory -Force "$HOME\.claude\skills" | Out-Null
+Copy-Item -Recurse -Force C:\Repositories\bcdevguidelines\.claude\skills\setup-al-vibe-rules "$HOME\.claude\skills\"
+```
 
-## Recommended links
-* [Business Central Yammer (Partners only: access controlled by Microsoft)](https://www.yammer.com/dynamicsnavdev/)
-* [Erik Wouters](https://www.waldo.be/)
-* [Vjekoslav Babić](http://www.vjeko.com/)
-* [Arend-Jan Kauffmann](https://www.kauffmann.nl/)
-* [Erik Hougaard](https://www.hougaard.com/)
-* [Stefano Demiliani](https://www.demiliani.com)
-* [Yun Zhu](https://yzhums)
+Then, in an AL project:
+
+1. Open the project and start Claude Code.
+2. Run `/setup-al-vibe-rules`. Claude does not start the skill on its own: you have to
+   invoke it.
+3. Fill in the login of your local container in `.claude/.claude/settings.local.json`.
+4. Restart Claude Code, approve the project's MCP servers and commit the changes.
+
+Run the skill again in a project to bring its rules up to date.
+
+## Changing rules or skills
+
+1. Edit the rule files in `.claude/rules/` or the skill in this repository.
+2. Commit and push to `main`. Projects only receive what is on `main`.
+3. If the skill itself changed, copy it to `~\.claude\skills\` again (see Getting started).
+4. Run `/setup-al-vibe-rules` in the projects that need the change.
+
+Guidelines for rule files:
+- Name team rules `bluace-<topic>.md`. Files with the `al-` prefix are overwritten by the
+  Microsoft rules.
+- Keep each rule focused on one topic. Explain the intent and include examples.
+- Do not put credentials or customer-specific details in this repository.
