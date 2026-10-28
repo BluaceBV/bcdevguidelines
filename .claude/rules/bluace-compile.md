@@ -1,6 +1,6 @@
 # Bluace: Compiling and Code Analysis
 
-The apps must compile without warnings under the same analyzers and ruleset that VS Code uses (`.vscode/settings.json` of each app).
+The apps must compile without warnings or infos under the same analyzers and ruleset that VS Code uses (`.vscode/settings.json` of each app).
 
 ## Rule 1: Compile with the workspace analyzers and the Bluace ruleset
 
@@ -32,10 +32,10 @@ $app = Get-Content "$project\app.json" -Raw | ConvertFrom-Json
     @($analyzers | ForEach-Object { "/analyzer:$_" }) /ruleset:"$ruleset"
 ```
 
-## Rule 2: Fix warnings; do not suppress them
+## Rule 2: Fix warnings and infos; do not suppress them
 
 ### Intent
-Fix the cause of a warning instead of hiding it. Do not use `#pragma warning disable`. If a rule cannot be met, ask the team instead of suppressing it.
+Fix the cause of every warning and info diagnostic instead of hiding it. Infos are not optional hints: treat them like warnings. Do not use `#pragma warning disable`. If a rule cannot be met, ask the team instead of suppressing it.
 
 ## Rule 3: Language facts verified in BC 29
 
