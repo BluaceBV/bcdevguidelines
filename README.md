@@ -41,6 +41,12 @@ Requirements:
 - Git logged in to GitHub with an account that has access to the BluaceBV organisation. This
   repository is private, so the skill clones it with your own credentials.
 - Node.js (for `npx`) and the AL extension in VS Code, for the MCP servers.
+- The BC Observatory plugin for Claude Code. It provides the Microsoft objects, source code and
+  documentation (`bc-observatory`, `bc-code-atlas` and `microsoft-learn`); the rules expect it.
+  Install it as described in the
+  [BC Observatory installation instructions](https://waldo1001.github.io/waldo.BCObservatory/mcp/#install).
+  The skill enables it for each project, so Claude Code also offers to install it when you open a
+  project.
 
 Install the skill once, as a personal skill, so it is available in every project:
 
