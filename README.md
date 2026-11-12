@@ -10,7 +10,7 @@ Changes are made here once. Each AL project then pulls them in with the
 |---|---|
 | `.claude/rules/bluace-*.md` | Bluace team rules: coding standards, folder structure, compiling, testing, development environment. Copied into each project's `.claude/rules/`. |
 | `.claude/skills/setup-al-vibe-rules/` | Skill that sets up or refreshes an AL project (see below). |
-| `CLAUDE.md` | Reference `CLAUDE.md` for AL projects: working style, where to find the standard BC source (`external/BCApps`) and the localisation layers we use. |
+| `CLAUDE.md` | Reference `CLAUDE.md` for AL projects: working style and where Microsoft objects and source code come from. |
 
 ## What the skill does
 
@@ -22,8 +22,12 @@ Running `/setup-al-vibe-rules` in an AL project:
 3. Makes `.claude` the first folder in `al.code-workspace`.
 4. Adds an `AL coding standards` section to `CLAUDE.md` that points to `.claude/rules/`.
 5. Makes git ignore every `settings.local.json`.
-6. Adds the AL MCP servers (`bc-knowledge`, `al`, `microsoft-learn`) to `.mcp.json`.
-7. Creates `.claude/.claude/settings.local.json` with placeholders for the login of the local
+6. Adds the AL MCP servers (`bc-knowledge`, `al`) to `.mcp.json`.
+7. Enables the [bc-observatory](https://waldo1001.github.io/waldo.BCObservatory/) plugin for the
+   project in `.claude/.claude/settings.json`. It connects `bc-observatory` (AL objects,
+   versions, localizations), `bc-code-atlas` (AL source code) and `microsoft-learn`, and replaces
+   the local copy of the Microsoft source (`external/BCApps`) that projects used before.
+8. Creates `.claude/.claude/settings.local.json` with placeholders for the login of the local
    BC container.
 
 For both rule sets, it first removes that set's old files, so rules that were removed or
@@ -37,6 +41,14 @@ Requirements:
 - Git logged in to GitHub with an account that has access to the BluaceBV organisation. This
   repository is private, so the skill clones it with your own credentials.
 - Node.js (for `npx`) and the AL extension in VS Code, for the MCP servers.
+- The BC Observatory plugin for Claude Code. It provides the Microsoft objects, source code and
+  documentation (`bc-observatory`, `bc-code-atlas` and `microsoft-learn`); the rules expect it.
+  Install it as described in the
+  [BC Observatory installation instructions](https://waldo1001.github.io/waldo.BCObservatory/mcp/#install).
+  The skill also enables it in each project's `.claude/.claude/settings.json`. That registers the
+  marketplace once you trust the project folder, but does not install the plugin: if you have not
+  installed it yet, run `claude plugin install bc-observatory@bc-observatory --scope project`
+  ([Require plugins per repository](https://code.claude.com/docs/en/plugins/org)).
 
 Install the skill once, as a personal skill, so it is available in every project:
 
@@ -52,7 +64,8 @@ Then, in an AL project:
 2. Run `/setup-al-vibe-rules`. Claude does not start the skill on its own: you have to
    invoke it.
 3. Fill in the login of your local container in `.claude/.claude/settings.local.json`.
-4. Restart Claude Code, approve the project's MCP servers and commit the changes.
+4. Restart Claude Code, approve the project's MCP servers, accept the installation of the
+   bc-observatory plugin and commit the changes.
 
 Run the skill again in a project to bring its rules up to date.
 

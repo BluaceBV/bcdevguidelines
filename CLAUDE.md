@@ -4,10 +4,7 @@
 
 # Business Central / AL
 - When discussing AL code, refer to objects by type and name, e.g. Table "Sales Header", Codeunit "Gen. Jnl.-Post Line".
-- Standard BC source (Microsoft BCApps) is in external/BCApps. It may be newer than what we compile against (minimum: application in app.json). Prefer it over AL symbol lookup for Microsoft objects, but before relying on an event, procedure or field from it, confirm it exists in the target version's symbols (.alpackages).
-  - Base App: check src/Layers/NL/BaseApp first (NL overrides), then src/Layers/W1/BaseApp. We also build for BE (src/Layers/BE/BaseApp); check it when touching objects it overrides. Ignore other layers.
-  - System Application / Business Foundation: src/System Application, src/Business Foundation.
-  - Non-Microsoft dependencies (e.g. Dime.Scheduler, Bluace and KPMG apps) are not in BCApps; use symbols/.alpackages for those.
+- Microsoft objects and source code come from the bc-observatory plugin (bc-observatory, bc-code-atlas, microsoft-learn), not from a local copy of BCApps. See .claude/rules/bluace-microsoft-source.md.
 
 # AL coding standards
 - See .claude/rules/ for detailed rules.
