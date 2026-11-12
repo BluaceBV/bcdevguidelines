@@ -193,8 +193,11 @@ bc-observatory plugin of step 8 provides them.
 The Microsoft objects and source code are looked up through the bc-observatory plugin (see
 `bluace-microsoft-source.md`). It connects the MCP servers `bc-observatory` (facts about AL
 objects, versions and localizations), `bc-code-atlas` (AL source code) and `microsoft-learn`
-(documentation). Enabling it in the project settings makes Claude Code offer to install it
-for everyone who opens the project.
+(documentation). Enabling it in the project settings makes the requirement visible to everyone
+who works in the repository. It does not install the plugin: Claude Code registers the
+marketplace after the developer accepts the workspace trust dialog (interactive sessions only),
+and each developer installs the plugin once, if they have not done so yet
+(see https://code.claude.com/docs/en/plugins/org, "Require plugins per repository").
 
 Project settings are read from the `.claude` folder of the folder where the session starts,
 which is the `.claude` workspace folder (step 4). The file is therefore
@@ -276,9 +279,12 @@ If the skill ran in a session started from the project directory, add that the l
 picked up by sessions started from the workspace (al.code-workspace).
 If .mcp.json was created or got new servers, tell them that Claude Code asks to approve the
 project's MCP servers on the next start.
-If step 8 created or changed .claude/.claude/settings.json, tell them that Claude Code offers to
-install the bc-observatory marketplace and plugin on the next start, and that they must accept
-it; the plugin needs Node.js (`npx`).
+If step 8 created or changed .claude/.claude/settings.json, tell them that enabling the plugin
+in the project does not install it. If `claude plugin list` does not show
+`bc-observatory@bc-observatory`, they install it as described in
+https://waldo1001.github.io/waldo.BCObservatory/mcp/#install, or with
+`claude plugin install bc-observatory@bc-observatory --scope project` after accepting the trust
+dialog for the folder. The plugin needs Node.js (`npx`).
 If step 3 retrieved no Bluace rules, tell them and that the existing bluace-*.md files were left unchanged.
 
 ## Notes

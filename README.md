@@ -45,8 +45,10 @@ Requirements:
   documentation (`bc-observatory`, `bc-code-atlas` and `microsoft-learn`); the rules expect it.
   Install it as described in the
   [BC Observatory installation instructions](https://waldo1001.github.io/waldo.BCObservatory/mcp/#install).
-  The skill enables it for each project, so Claude Code also offers to install it when you open a
-  project.
+  The skill also enables it in each project's `.claude/.claude/settings.json`. That registers the
+  marketplace once you trust the project folder, but does not install the plugin: if you have not
+  installed it yet, run `claude plugin install bc-observatory@bc-observatory --scope project`
+  ([Require plugins per repository](https://code.claude.com/docs/en/plugins/org)).
 
 Install the skill once, as a personal skill, so it is available in every project:
 
