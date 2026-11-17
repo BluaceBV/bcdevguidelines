@@ -47,7 +47,7 @@ When an app was published to an online sandbox, say so in the summary at the end
 ### Examples
 
 ```jsonc
-// Good example - the only configuration is an online sandbox, schema is synchronized
+// Good example - the only configuration is an online sandbox; without schemaUpdateMode, the default Synchronize applies
 {
   "version": "0.2.0",
   "configurations": [
@@ -57,19 +57,33 @@ When an app was published to an online sandbox, say so in the summary at the end
       "request": "launch",
       "environmentType": "Sandbox",
       "environmentName": "ABC-DEV",
-      "tenant": "contoso.onmicrosoft.com",
-      "schemaUpdateMode": "Synchronize"
+      "tenant": "contoso.onmicrosoft.com"
     }
   ]
 }
 ```
 
 ```jsonc
-// Bad example (avoid) - a second environment, and a schema mode that can delete data
+// Bad example (avoid a second environment, and a schema update mode that can delete data)
 {
+  "version": "0.2.0",
   "configurations": [
-    { "name": "Local", "type": "al", "request": "launch", "server": "http://mycontainer", "serverInstance": "BC" },
-    { "name": "ABC-DEV", "type": "al", "request": "launch", "environmentType": "Sandbox", "environmentName": "ABC-DEV", "schemaUpdateMode": "ForceSync" }
+    {
+      "name": "Local",
+      "type": "al",
+      "request": "launch",
+      "server": "http://mycontainer",
+      "serverInstance": "BC"
+    },
+    {
+      "name": "ABC-DEV",
+      "type": "al",
+      "request": "launch",
+      "environmentType": "Sandbox",
+      "environmentName": "ABC-DEV",
+      "tenant": "contoso.onmicrosoft.com",
+      "schemaUpdateMode": "ForceSync"
+    }
   ]
 }
 ```
