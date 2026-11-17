@@ -38,10 +38,18 @@ alone. The skill never commits: review the changes and commit them with the proj
 
 Requirements:
 - Windows with PowerShell. The skill's download and copy commands are written for PowerShell.
-- Git logged in to GitHub with an account that has access to the BluaceBV organisation. This
-  repository is private, so the skill clones it with your own credentials.
-- Node.js (for `npx`) and the AL extension in VS Code, for the MCP servers.
-- The BC Observatory plugin for Claude Code. It provides the Microsoft objects, source code and
+- Git. The skill clones this repository with `git clone`; it is public, so no GitHub account or
+  login is needed.
+- Node.js 20 or later (for `npx`) and the AL extension in VS Code, for the MCP servers.
+- The [ALCops](https://marketplace.visualstudio.com/items?itemName=arthurvdv.alcops) extension in
+  VS Code. It provides the best-practice analyzers (`ALCops.*.dll`) that the agent passes to
+  `alc.exe` (see `bluace-compile.md`) and fixes the diagnostics of after compiling. The Bluace
+  ruleset in each app's `al.ruleSetPath` switches off the rules the team does not use.
+- BC Code Intelligence, the `bc-knowledge` MCP server (npm package `bc-code-intelligence-mcp`).
+  The skill registers it in `.mcp.json` and Claude Code starts it with `npx`, so the npm registry
+  must be reachable. See
+  [BC Code Intelligence](https://marketplace.visualstudio.com/items?itemName=jeremyvyska.bc-code-intelligence).
+- The [BC Observatory](https://waldo1001.github.io/waldo.BCObservatory/) plugin for Claude Code. It provides the Microsoft objects, source code and
   documentation (`bc-observatory`, `bc-code-atlas` and `microsoft-learn`); the rules expect it.
   Install it as described in the
   [BC Observatory installation instructions](https://waldo1001.github.io/waldo.BCObservatory/mcp/#install).
