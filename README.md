@@ -49,7 +49,7 @@ Requirements:
   The skill registers it in `.mcp.json` and Claude Code starts it with `npx`, so the npm registry
   must be reachable. See
   [BC Code Intelligence](https://marketplace.visualstudio.com/items?itemName=jeremyvyska.bc-code-intelligence).
-- The BC Observatory plugin for Claude Code. It provides the Microsoft objects, source code and
+- The [BC Observatory](https://waldo1001.github.io/waldo.BCObservatory/) plugin for Claude Code. It provides the Microsoft objects, source code and
   documentation (`bc-observatory`, `bc-code-atlas` and `microsoft-learn`); the rules expect it.
   Install it as described in the
   [BC Observatory installation instructions](https://waldo1001.github.io/waldo.BCObservatory/mcp/#install).
