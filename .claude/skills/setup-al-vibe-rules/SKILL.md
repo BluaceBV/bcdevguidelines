@@ -61,9 +61,8 @@ Chain multiple downloads with ; so every file is saved in a single round-trip.
 ## Step 3 - Update the Bluace rules from bcdevguidelines
 
 The Bluace team rules (`bluace-*.md`) come from the folder `.claude/rules/` on branch `main`
-of https://github.com/BluaceBV/bcdevguidelines. That repository is private: the GitHub API and
-raw download URLs return 404 without a login. Use `git clone` instead, which logs in with the
-developer's own GitHub credentials.
+of https://github.com/BluaceBV/bcdevguidelines. That repository is public, so no GitHub login is
+needed. Use a shallow `git clone` to get the whole folder in one call.
 
 Skip this step if the project directory is the bcdevguidelines repository itself (its
 `git remote get-url origin` is the URL above): it is the source of these rules.
@@ -88,8 +87,7 @@ if ($new) {
 if (Test-Path $src) { Remove-Item -Recurse -Force $src }
 
 If no rules were retrieved, continue with the other steps and tell the user at the end. The
-usual cause is that git is not logged in to GitHub with an account that has access to the
-BluaceBV organisation.
+usual cause is that git is not installed or GitHub cannot be reached.
 
 ## Step 4 - Add .claude/ to the workspace file
 
