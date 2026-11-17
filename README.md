@@ -41,6 +41,10 @@ Requirements:
 - Git. The skill clones this repository with `git clone`; it is public, so no GitHub account or
   login is needed.
 - Node.js 20 or later (for `npx`) and the AL extension in VS Code, for the MCP servers.
+- The [ALCops](https://marketplace.visualstudio.com/items?itemName=arthurvdv.alcops) extension in
+  VS Code. It provides the best-practice analyzers (`ALCops.*.dll`) that the agent passes to
+  `alc.exe` (see `bluace-compile.md`) and fixes the diagnostics of after compiling. The Bluace
+  ruleset in each app's `al.ruleSetPath` switches off the rules the team does not use.
 - BC Code Intelligence, the `bc-knowledge` MCP server (npm package `bc-code-intelligence-mcp`).
   The skill registers it in `.mcp.json` and Claude Code starts it with `npx`, so the npm registry
   must be reachable. See
