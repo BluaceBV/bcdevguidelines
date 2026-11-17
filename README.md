@@ -40,7 +40,11 @@ Requirements:
 - Windows with PowerShell. The skill's download and copy commands are written for PowerShell.
 - Git. The skill clones this repository with `git clone`; it is public, so no GitHub account or
   login is needed.
-- Node.js (for `npx`) and the AL extension in VS Code, for the MCP servers.
+- Node.js 20 or later (for `npx`) and the AL extension in VS Code, for the MCP servers.
+- BC Code Intelligence, the `bc-knowledge` MCP server (npm package `bc-code-intelligence-mcp`).
+  The skill registers it in `.mcp.json` and Claude Code starts it with `npx`, so the npm registry
+  must be reachable. See
+  [BC Code Intelligence](https://marketplace.visualstudio.com/items?itemName=jeremyvyska.bc-code-intelligence).
 - The BC Observatory plugin for Claude Code. It provides the Microsoft objects, source code and
   documentation (`bc-observatory`, `bc-code-atlas` and `microsoft-learn`); the rules expect it.
   Install it as described in the
