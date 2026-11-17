@@ -9,7 +9,15 @@ Supplements `al-testing.md` with what applies to the test apps in this repo.
 - The AL MCP test runner cannot run tests that use TestPages. Put TestPage scenarios in a separate UI test codeunit; they run in the AL-Go pipeline.
 - Publish the app and the test app first (see `bluace-dev-environment.md`).
 
-## Rule 2: No external communication in tests
+## Rule 2: Tests in an online sandbox
+
+### Intent
+Tests run in an online sandbox when the user approved publishing to that sandbox in the session (`bluace-dev-environment.md`, Rule 2). That approval includes running the tests, without a separate question, so the agent can correct the code based on the results. The sandbox may be shared, and Microsoft limits testing there ([Testing the application](https://learn.microsoft.com/dynamics365/business-central/dev-itpro/developer/devenv-testing-application#environment-testing-support-and-limitations)): no large numbers of tests, no test method longer than 15 minutes, and preferably not more than one or two hours of tests a day.
+- Run only the test codeunits of the feature you changed, not the whole test app.
+- Tests that `Commit()` (see Rule 5) can leave data in the sandbox's company. Name them in the approval question of `bluace-dev-environment.md`, Rule 2, so the user knows this before approving.
+- The test framework and test libraries the test app depends on must already be installed in the sandbox. If they are missing, tell the user; do not install them.
+
+## Rule 3: No external communication in tests
 
 ### Intent
 Tests never call external services, in containers and in online sandboxes alike.
@@ -17,7 +25,7 @@ Tests never call external services, in containers and in online sandboxes alike.
 - As backstops, point the base URL at an unresolvable `.invalid` host and use a dummy token.
 - Do not use `TestHttpRequestPolicy`; it is on-premises only.
 
-## Rule 3: Permission tests must start Permissions Mock
+## Rule 4: Permission tests must start Permissions Mock
 
 ### Intent
 "Library - Lower Permissions" does nothing unless Codeunit "Permissions Mock" is started, and the AL MCP test runner does not start it. A permission test would then pass without any restriction.
@@ -25,12 +33,12 @@ Tests never call external services, in containers and in online sandboxes alike.
 - Call "Library - Lower Permissions" (e.g. `SetO365BusFull()`, `AddPermissionSet(...)`) directly in the test procedure, not in a helper (CodeCop AA0087).
 - Create test data before lowering permissions.
 
-## Rule 4: asserterror rolls back uncommitted data
+## Rule 5: asserterror rolls back uncommitted data
 
 ### Intent
 `asserterror` rolls back every uncommitted change of the test, including test data created before it. Commit test data (with a comment explaining why) that the test checks or needs after an `asserterror`.
 
-## Rule 5: Every test starts with its scenario and acceptance criterion
+## Rule 6: Every test starts with its scenario and acceptance criterion
 
 ### Intent
 The first line of every test procedure is a `[SCENARIO]` comment with the number of the acceptance criterion it covers (from the feature's `acceptance.md`) and a one-sentence description, followed by the `[GIVEN]`/`[WHEN]`/`[THEN]` comments. Prefix the test procedure name with the same number. When one test covers several criteria, list them all; when several tests cover one criterion, each repeats that number.
@@ -72,12 +80,12 @@ begin
 end;
 ```
 
-## Rule 6: Test app dependencies in BC 29
+## Rule 7: Test app dependencies in BC 29
 
 ### Intent
 In BC 29, "Tests-TestLibraries" does not pass on all libraries to the test app. Add these as direct dependencies when used: "Library Variable Storage" (`5095f467-0a01-4b99-99d1-9ff1237d286f`) and "Permissions Mock" (`40860557-a18d-42ad-aecb-22b7dd80dc80`), next to "Library Assert", "Any" and "Tests-TestLibraries".
 
-## Rule 7: Tests must pass in every client language
+## Rule 8: Tests must pass in every client language
 
 ### Intent
 The app is translated (en-US, nl-NL), so error texts depend on the language of the user who runs the tests. Never assert on an English fragment of an app message.

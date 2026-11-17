@@ -16,7 +16,7 @@ Before building, publishing, testing or naming objects, determine these facts fo
 | Target BC version | `application` and `platform` in `app.json` |
 | Object name suffix (affix) | `mandatorySuffix` in `AppSourceCop.json` of the app being changed (see Rule 2); otherwise `CRS.ObjectNameSuffix` in that app's `.vscode/settings.json`; otherwise the common suffix of its existing object names |
 | Analyzers and ruleset | `al.codeAnalyzers` and `al.ruleSetPath` in the app's `.vscode/settings.json` |
-| Local development server | The first configuration with a `server` value in the `.vscode/launch.json` of the app being built, published or tested (see `bluace-dev-environment.md`, Rule 1) |
+| Development environment | The first configuration with a `server` value in the `.vscode/launch.json` of the app being built, published or tested (see `bluace-dev-environment.md`, Rule 1). An online sandbox only when it is the only configuration in that `launch.json` and the user approved it in the session (Rule 2) |
 | Company | Not specified: publishing needs no company, and tests run in the default company of the local environment (the company it starts in) |
 | Dependency order between apps | `dependencies` in each `app.json` |
 

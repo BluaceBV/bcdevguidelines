@@ -256,6 +256,9 @@ started from the workspace does not read that file.
 - If it exists, do not overwrite it. Add an `env` block or the missing variables with the
   placeholder values above, and keep all other content and existing values unchanged.
 - Never ask for, show or log the password. The user fills in the placeholders themselves.
+- An app that can only be built against an online sandbox (see `bluace-dev-environment.md`,
+  Rule 2) does not use these variables: the AL MCP tools sign in with `al_auth_login`. Create
+  the file anyway, so it is there when the project later gets a local container.
 
 ## Verification
 
