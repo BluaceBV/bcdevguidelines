@@ -72,6 +72,11 @@ Then, in an AL project:
 2. Run `/setup-al-vibe-rules`. Claude does not start the skill on its own: you have to
    invoke it.
 3. Fill in the login of your local container in `.claude/.claude/settings.local.json`.
+   If an app can only be built against an online sandbox (for example because it depends on an
+   AppSource app that is not available as a file), make that sandbox the only configuration in
+   the app's `.vscode/launch.json`, without `schemaUpdateMode` `ForceSync` or `Recreate`. Claude
+   then asks you in every session before it publishes to that sandbox the first time. That
+   approval also lets it run the tests there (see `bluace-dev-environment.md`, Rule 2).
 4. Restart Claude Code, approve the project's MCP servers, accept the installation of the
    bc-observatory plugin and commit the changes.
 
