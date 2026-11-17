@@ -34,7 +34,7 @@ Use an online sandbox only when all of these are true:
    - The approval to publish includes running the tests of the published test apps in that sandbox (see `bluace-testing.md`, Rule 2), so the agent can correct the code based on the results without asking again.
 3. **The schema is only synchronized, never forced or recreated.**
    - `schemaUpdateMode` in the configuration must be missing or `"Synchronize"`. When it is `"ForceSync"` or `"Recreate"`, do not publish: tell the user and let them change it.
-   - Always pass `schemaUpdateMode: "Synchronize"` to `al_publish` explicitly; never `"ForceSync"` or `"Recreate"`, and do not leave it to the default.
+   - `"Synchronize"` is the default, both in `launch.json` and for `al_publish`. Still pass `schemaUpdateMode: "Synchronize"` to `al_publish`, so the choice is visible in the call; never `"ForceSync"` or `"Recreate"`.
    - When publishing fails because the schema cannot be synchronized (e.g. a field was removed, a type changed or a primary key changed), stop and report the error. Do not retry with another schema mode, and do not uninstall, unpublish or clean the app's data to get around it. That decision is the user's (usually: an upgrade codeunit, or a change that is not breaking).
    - Do not pass `forceUpgrade: true`.
 
