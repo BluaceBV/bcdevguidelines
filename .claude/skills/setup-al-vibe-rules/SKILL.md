@@ -32,6 +32,21 @@ al.code-workspace and .claude/. Determine it first from the current working dire
 Use absolute paths based on the project directory in every step, and run git commands with
 `git -C <project directory>`, so the result does not depend on where the session started.
 
+## Custom rules are never removed
+
+This skill manages only the `al-*.md` and `bluace-*.md` files directly in .claude/rules/. Every
+other file in .claude/rules/ and its subfolders is a custom rule of the project: never delete,
+overwrite, rename or move it, and never delete, empty or recreate the .claude/rules/ folder
+itself. Before step 2, list the custom rules, so the verification can check that they are
+unchanged:
+
+$rules = "<project directory>/.claude/rules"
+if (Test-Path $rules) {
+    @(Get-ChildItem $rules -File | Where-Object Name -notmatch '^(al|bluace)-.*\.md$') +
+    @(Get-ChildItem $rules -Directory | Get-ChildItem -Recurse -File) |
+        Get-FileHash | Select-Object Path, Hash
+}
+
 ## Step 1 - Discover files in the GitHub folder
 
 Call the GitHub Contents API to get the current file list (never hard-code filenames):
@@ -263,7 +278,8 @@ started from the workspace does not read that file.
 ## Verification
 
 After completing all steps, confirm:
-- .claude/rules/ contains the al-*.md files from the GitHub folder, and the other rule files are still there
+- .claude/rules/ contains the al-*.md files from the GitHub folder
+- the custom rules listed before step 2 are all still there, with the same hash
 - .claude/rules/ contains exactly the bluace-*.md files from bcdevguidelines (unless step 3 was skipped or failed), and the temporary clone is removed
 - al.code-workspace has { "path": ".claude" } as the first entry in folders
 - CLAUDE.md contains the `AL coding standards` section exactly once
