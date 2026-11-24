@@ -31,8 +31,16 @@ Running `/setup-al-vibe-rules` in an AL project:
    BC container.
 
 For both rule sets, it first removes that set's old files, so rules that were removed or
-renamed upstream disappear from the project too. Other files in `.claude/rules/` are left
-alone. The skill never commits: review the changes and commit them with the project.
+renamed upstream disappear from the project too. Only `al-*.md` and `bluace-*.md` directly in
+`.claude/rules/` are removed or replaced. All other files there, and everything in its
+subfolders, are custom rules of the project and are left alone. The skill never commits: review
+the changes and commit them with the project.
+
+### Custom rules in a project
+
+A project can add its own rules to `.claude/rules/`. Give them any prefix other than `al-` and
+`bluace-` (for example `project-<topic>.md`), or put them in a subfolder. A file named `al-*.md`
+or `bluace-*.md` is overwritten or deleted the next time the skill runs.
 
 ## Getting started
 
